@@ -1,0 +1,39 @@
+/* body {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+                url("./assets/images/background.png");
+    background-size: cover;
+    background-blend-mode: overlay;
+} */
+
+body {
+    background-image: url("./assets/images/background2.png");
+    height: 100%;
+    background-position: center;
+    background-repeat:repeat;
+    background-size: cover;
+}
+
+h1,h2{
+    font-family: work sans;
+}
+
+#header{
+    font-size: 3rem;
+}
+
+.book-list{
+    background-color: rgb(244, 244, 244);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+}
+
+.container{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
