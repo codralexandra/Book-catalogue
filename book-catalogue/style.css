@@ -17,7 +17,6 @@ h1,h2,p{
 
 #title{
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 #intro-img{
@@ -32,18 +31,19 @@ h1,h2,p{
 }
 
 .book-list{
-    background-color: rgb(244, 244, 244);
+    display: flex;
+    justify-content: center;
     border-radius: 10px;
     padding: 20px;
     margin-top: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90% ;
     visibility: hidden;
 }
 
 .container{
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

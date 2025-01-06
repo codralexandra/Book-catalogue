@@ -14,7 +14,7 @@ $(document).ready(function(){
         }
         else{
             $.ajax({
-                url: bookUrl + encodeURIComponent(searchData) + "&maxResults=6",
+                url: bookUrl + encodeURIComponent(searchData) + "&maxResults=6&langRestrict=en",
                 dataType: "json",
                 success: function(response){
                     console.log(response);
@@ -33,6 +33,44 @@ $(document).ready(function(){
             });
         }
         $("#search-box").val("");
+    });
+
+    $("#random-search").click(function() {
+        console.log("Random search clicked");
+        outputList.innerHTML = "";
+    
+        var randomGenres = ["Fiction", "Mystery", "Science", "History", "Romance", "Technology", "Biography", "Horror", "Fantasy", "Comedy", "Thriller", "Adventure", "Psychological"];
+        var randomGenre = randomGenres[Math.floor(Math.random() * randomGenres.length)];
+    
+        var previouslyShownBooks = [];
+    
+        $.ajax({
+            url: bookUrl + "subject:" + encodeURIComponent(randomGenre) + "&maxResults=1&langRestrict=en",
+            dataType: "json",
+            success: function(response) {
+                if (response.totalItems === 0) {
+                    alert("No results! Try again.");
+                } else {
+                    var uniqueResults = response.items.filter(function(book) {
+                        return !previouslyShownBooks.includes(book.id);
+                    });
+    
+                    if (uniqueResults.length > 0) {
+                        $("#title").animate({ 'margin-top': '5px' }, 1000);
+                        $(".book-list").css("visibility", "visible");
+                        previouslyShownBooks.push(...uniqueResults.map(function(book) {
+                            return book.id;
+                        }));
+                        displayResults({ items: uniqueResults, totalItems: uniqueResults.length });
+                    } else {
+                        alert("All results have been shown. Please try again.");
+                    }
+                }
+            },
+            error: function() {
+                alert("Something went wrong...<br>Try again!");
+            }
+        });
     });
 
     function displayResults(response) {
