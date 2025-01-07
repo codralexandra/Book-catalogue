@@ -14,7 +14,7 @@ $(document).ready(function(){
         }
         else{
             $.ajax({
-                url: bookUrl + encodeURIComponent(searchData) + "&maxResults=6&langRestrict=en",
+                url: bookUrl + "intitle:" + '"' + encodeURIComponent(searchData) + '"' + "&printType=books&maxResults=6&langRestrict=en",
                 dataType: "json",
                 success: function(response){
                     console.log(response);
@@ -102,7 +102,7 @@ $(document).ready(function(){
         var imageSrc = bookImg || placeholder;
 
         var htmlCard = `<div class="col-lg-4 col-md-6 mb-4"> <!-- col-lg-4 for 3 items per row -->
-          <div class="card">
+          <div class="card" id="random-card">
             <div class="card-body d-flex flex-column justify-content-between"> <!-- Use flexbox for consistent layout -->
               <!-- Book Image -->
               <img src="${imageSrc}" class="card-img-top mx-auto" alt="Book Cover" style="max-width: 200px; margin-bottom: 20px;">

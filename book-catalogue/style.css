@@ -31,13 +31,16 @@ h1,h2,p{
 }
 
 .book-list{
-    display: flex;
-    justify-content: center;
     border-radius: 10px;
     padding: 20px;
-    margin-top: 50px;
-    width: 90% ;
+    margin-top: 30px;
+    width: 80%;
+    max-width: 1200px;
     visibility: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .container{
@@ -46,6 +49,7 @@ h1,h2,p{
     padding: 30px;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height:100%;
 }
 
 .card{
