@@ -72,6 +72,37 @@ $(document).ready(function(){
             }
         });
     });
+    
+    $("#author-search").click(function(){
+        outputList.innerHTML = "";
+        console.log("Author search clicked");
+        searchData = $("#search-box").val();
+
+        if(searchData === "" || searchData === null){
+            displayError();
+        }
+        else{
+            $.ajax({
+                url: bookUrl + "inauthor:" + '"' + encodeURIComponent(searchData) + '"' + "&printType=books&maxResults=6",
+                dataType: "json",
+                success: function(response){
+                    console.log(response);
+                    if(response.totalItems === 0){
+                        alert("No results! Try again.");
+                    }
+                    else{
+                        $("#title").animate({'margin-top': '5px'}, 1000);
+                        $(".book-list").css("visibility", "visible");
+                        displayResults(response);
+                    }
+                },
+                error: function(){
+                    alert("Something went wrong...<br>Try again!");
+                }
+            });
+        }
+        $("#search-box").val("");
+    });
 
     function displayResults(response) {
         const books = response.items;

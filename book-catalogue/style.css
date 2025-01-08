@@ -17,6 +17,7 @@ h1,h2,p{
 
 #title{
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #intro-img{
@@ -28,6 +29,7 @@ h1,h2,p{
 
 #intro-paragraph{
     text-align: justify;
+    font-size: 20px;
 }
 
 .book-list{
